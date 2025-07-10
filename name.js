@@ -60,11 +60,7 @@ const specialNames = {
         type: 'message',
         text: 'You\'re not a robot, you know.'
     },
-    'NSNS': {
-        type: 'message',
-        text: 'uwu',
-        location: 'https://www.youtube.com/watch?v=HwAPLk_sQ3w&list=PLHovnlOusNLgvAbnxluXCVB3KLj8e4QB-'
-    },
+
     'ALEXANDER': {
         type: 'message',
         text: 'thats me......'

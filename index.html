@@ -14,6 +14,26 @@
 </head>
 
 <body>
+<script type="module">
+  import { discordSdk } from 'https://cdn.jsdelivr.net/npm/@discord/embedded-app-sdk@0.0.4/dist/index.min.js';
+
+  async function initDiscord() {
+    await discordSdk.ready();
+    const channelId = await discordSdk.commands.getChannelId();
+    console.log("✅ Discord SDK Ready. Channel ID:", channelId);
+    
+    // Optional: set activity 
+    await discordSdk.commands.setActivity({
+      activity: {
+        details: "Playing Memory Game",
+        state: "In the zone 🧠",
+      }
+    });
+  }
+
+  initDiscord();
+</script>
+
 <!-- Loading Screen -->
 <div id="loadingScreen">
   <img src="./images/floweygif.gif" alt="Loading..." />

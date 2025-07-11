@@ -175,7 +175,7 @@
       padding: 30px;
       border: 3px solid #fff;
       text-align: center;
-      z-index: 1001;
+      z-index: 999999;
       display: none;
       font-family: "Pixelify Sans", sans-serif;
     }

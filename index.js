@@ -604,6 +604,9 @@ window.addEventListener('keyup', e => {
     keysPressed[e.key] = false;
   }
 });
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('restartBtn')?.addEventListener('click', restartGame);
+});
 
 // Start the game when page loads
 initializeGame();

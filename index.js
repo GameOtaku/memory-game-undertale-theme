@@ -532,14 +532,39 @@ function gameOver() {
 
 // Restarts the game after game over
 function restartGame() {
-    document.getElementById('gameOver').style.display = 'none';
-    const fightScreen = document.getElementById('fightScreen');
-    if (fightScreen) {
-        fightScreen.remove();
-    }
-    document.querySelector('.frame').innerHTML = '';
-    wind.pause();
-    restart();
+  // Hide Game Over screen
+  document.getElementById('gameOver').style.display = 'none';
+
+  // Remove fight screen if it exists
+  const fightScreen = document.getElementById('fightScreen');
+  if (fightScreen) fightScreen.remove();
+
+  // Stop audio
+  wind.pause();
+  wind.currentTime = 0;
+  evil.pause();
+  evil.currentTime = 0;
+  death.pause();
+  death.currentTime = 0;
+
+  // Clear any dialogue
+  const frame = document.querySelector('.frame');
+  if (frame) frame.innerHTML = '';
+
+  // Reset all timers and state
+  clearInterval(intervalId);
+  clearInterval(bulletIntervalId);
+  bullets.forEach(b => b.remove());
+  bullets = [];
+  keysPressed = {};
+  fightActive = false;
+  floweyTriggered = false;
+  matchedPairs = 0;
+  gameInProgress = true;
+  fightCompleted = false;
+
+  // Re-initialize the board
+  initializeGame();
 }
 
 // Flips non-matching cards back face down after a delay
